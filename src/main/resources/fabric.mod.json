@@ -3,15 +3,15 @@
 	"id": "village-extension",
 	"version": "${version}",
 	"name": "Village Extension",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "This mod includes many items for developing village.",
 	"authors": [
-		"Me!"
+		"fuyossi"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/fuyossi/village-extension-26.2",
+		"sources": "https://github.com/fuyossi/village-extension-26.2"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/village-extension/icon.png",
 	"environment": "*",
 	"entrypoints": {
