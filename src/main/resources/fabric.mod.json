@@ -20,6 +20,9 @@
 		],
 		"client": [
 			"com.fuyossi.village_extension.client.VillageExtensionClient"
+		],
+		"fabric-datagen": [
+			"com.fuyossi.village_extension.client.VillageExtensionDataGenerator"
 		]
 	},
 	"mixins": [
