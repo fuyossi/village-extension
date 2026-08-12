@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "village-extension:block/train_station_ticket_gate"
+    }
+  }
+}
