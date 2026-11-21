@@ -1,7 +1,12 @@
 {
   "variants": {
-    "": {
-      "model": "village-extension:block/train_station_ticket_gate"
-    }
+    "facing=north,open=false": { "model": "village-extension:block/train_station_ticket_gate_closed" },
+    "facing=east,open=false":  { "model": "village-extension:block/train_station_ticket_gate_closed", "y": 90 },
+    "facing=south,open=false": { "model": "village-extension:block/train_station_ticket_gate_closed", "y": 180 },
+    "facing=west,open=false":  { "model": "village-extension:block/train_station_ticket_gate_closed", "y": 270 },
+    "facing=north,open=true":  { "model": "village-extension:block/train_station_ticket_gate_open" },
+    "facing=east,open=true":   { "model": "village-extension:block/train_station_ticket_gate_open", "y": 90 },
+    "facing=south,open=true":  { "model": "village-extension:block/train_station_ticket_gate_open", "y": 180 },
+    "facing=west,open=true":   { "model": "village-extension:block/train_station_ticket_gate_open", "y": 270 }
   }
 }

@@ -1,13 +1,15 @@
 package com.fuyossi.village_extension;
 
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.references.BlockItemId;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Function;
@@ -15,8 +17,12 @@ import java.util.function.Function;
 public class ModBlocks {
     public static final Block TRAIN_STATION_TICKET_GATE = register(
             ModBlockItemIds.TRAIN_STATION_TICKET_GATE,
-            Block::new,
-            BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion().noCollision()
+            TrainStationTicketGateBlock::new,
+            BlockBehaviour.Properties.of()
+                    .sound(SoundType.IRON)
+                    .strength(3.0F, 6.0F)
+                    .requiresCorrectToolForDrops()
+                    .noOcclusion()
     );
 
     private static Block register(ResourceKey<Block> id, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties properties) {
@@ -38,5 +44,8 @@ public class ModBlocks {
     }
 
     public static void initialize() {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> {
+            tab.accept(TRAIN_STATION_TICKET_GATE.asItem());
+        });
     }
 }

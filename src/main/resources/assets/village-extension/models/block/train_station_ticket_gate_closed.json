@@ -10,7 +10,7 @@
 		{
 			"name": "Right Gate",
 			"from": [0, 0, 0],
-			"to": [2, 12, 16],
+			"to": [3, 12, 16],
 			"faces": {
 				"north": {"uv": [7, 6, 7.5, 9], "texture": "#0"},
 				"east": {"uv": [0, 0, 4, 3], "texture": "#0"},
@@ -22,9 +22,9 @@
 		},
 		{
 			"name": "Left Gate",
-			"from": [14, 0, 0],
+			"from": [13, 0, 0],
 			"to": [16, 12, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [14, 0, 0]},
+			"rotation": {"angle": 0, "axis": "y", "origin": [13, 0, 0]},
 			"faces": {
 				"north": {"uv": [0, 8, 0.5, 11], "texture": "#0"},
 				"east": {"uv": [4, 0, 8, 3], "texture": "#0"},
@@ -36,9 +36,9 @@
 		},
 		{
 			"name": "Right Door",
-			"from": [2, 0, 7],
+			"from": [3, 0, 7],
 			"to": [7, 8, 9],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 7]},
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 0, 7]},
 			"faces": {
 				"north": {"uv": [0, 6, 1.25, 8], "texture": "#0"},
 				"east": {"uv": [0.5, 8, 1, 10], "texture": "#0"},
@@ -51,7 +51,7 @@
 		{
 			"name": "Left Door",
 			"from": [9, 0, 7],
-			"to": [14, 8, 9],
+			"to": [13, 8, 9],
 			"rotation": {"angle": 0, "axis": "y", "origin": [9, 0, 7]},
 			"faces": {
 				"north": {"uv": [2.5, 6, 3.75, 8], "texture": "#0"},

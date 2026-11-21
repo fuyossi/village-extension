@@ -22,7 +22,7 @@ public class VillageExtension implements ModInitializer {
 		// Proceed with mild caution.
 
 		ModBlocks.initialize();
-		ModItems.initialize();
+		ModCreativeTabs.initialize();
 	}
 
 	public static Identifier id(String path) {
