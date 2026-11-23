@@ -34,6 +34,15 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
     );
 
+    public static final Block IC_CARD_VENDING_MACHINE = register(
+            ModBlockItemIds.IC_CARD_VENDING_MACHINE,
+            ICCardVendingMachineBlock::new,
+            BlockBehaviour.Properties.of()
+                    .sound(SoundType.IRON)
+                    .strength(3.0F, 6.0F)
+                    .requiresCorrectToolForDrops()
+    );
+
     private static Block register(ResourceKey<Block> id, Function<BlockBehaviour.Properties, Block> blockFactory, BlockBehaviour.Properties properties) {
         // Create the block instance
         Block block = blockFactory.apply(properties.setId(id));
@@ -56,6 +65,7 @@ public class ModBlocks {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> {
             tab.accept(TRAIN_STATION_TICKET_GATE.asItem());
             tab.accept(TRAIN_STATION_TICKET_VENDING_MACHINE.asItem());
+            tab.accept(IC_CARD_VENDING_MACHINE.asItem());
         });
     }
 }

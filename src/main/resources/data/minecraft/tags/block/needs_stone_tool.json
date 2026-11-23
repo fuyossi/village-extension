@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "village-extension:train_station_ticket_gate",
-    "village-extension:train_station_ticket_vending_machine"
+    "village-extension:train_station_ticket_vending_machine",
+    "village-extension:ic_card_vending_machine"
   ]
 }

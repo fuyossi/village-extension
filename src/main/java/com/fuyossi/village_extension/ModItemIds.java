@@ -7,6 +7,8 @@ import net.minecraft.world.item.Item;
 public class ModItemIds {
     public static final ResourceKey<Item> TRAIN_TICKET = create("train_ticket");
 
+    public static final ResourceKey<Item> IC_CARD = create("ic_card");
+
     private static ResourceKey<Item> create(String name) {
         return ResourceKey.create(Registries.ITEM, VillageExtension.id(name));
     }

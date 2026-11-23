@@ -1,6 +1,8 @@
 {
   "item.village-extension.train_ticket": "Ticket",
+  "item.village-extension.ic_card": "IC Card",
   "block.village-extension.train_station_ticket_gate": "Ticket Gate",
   "block.village-extension.train_station_ticket_vending_machine": "Ticket Vending Machine",
+  "block.village-extension.ic_card_vending_machine": "IC Card Machine",
   "creativeTab.village-extension": "Village Extension"
 }

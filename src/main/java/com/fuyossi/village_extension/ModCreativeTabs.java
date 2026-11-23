@@ -19,8 +19,11 @@ public final class ModCreativeTabs {
             .icon(() -> new ItemStack(Items.EMERALD))   // タブのアイコン
             .title(Component.translatable("creativeTab.village-extension"))
             .displayItems((params, output) -> {
+                output.accept(ModItems.TRAIN_TICKET);
+                output.accept(ModItems.IC_CARD);
                 output.accept(ModBlocks.TRAIN_STATION_TICKET_GATE);
                 output.accept(ModBlocks.TRAIN_STATION_TICKET_VENDING_MACHINE);
+                output.accept(ModBlocks.IC_CARD_VENDING_MACHINE);
             })
             .build();
 

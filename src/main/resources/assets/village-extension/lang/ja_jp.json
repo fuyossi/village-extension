@@ -1,5 +1,7 @@
 {
   "item.village-extension.train_ticket": "切符",
+  "item.village-extension.ic_card": "ICカード",
   "block.village-extension.train_station_ticket_gate": "改札機",
-  "block.village-extension.train_station_ticket_vending_machine": "券売機"
+  "block.village-extension.train_station_ticket_vending_machine": "券売機",
+  "block.village-extension.ic_card_vending_machine": "ICカード販売機"
 }
