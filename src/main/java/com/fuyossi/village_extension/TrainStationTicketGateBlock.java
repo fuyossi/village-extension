@@ -2,9 +2,12 @@ package com.fuyossi.village_extension;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -19,6 +22,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -27,6 +31,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class TrainStationTicketGateBlock extends Block {
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
+    private static final int AUTO_CLOSE_TICKS = 100; // 20tick = 1秒
 
     // 通行方向が南北(Z軸)のとき
     private static final VoxelShape OUTLINE_POSTS_Z = Shapes.or(
@@ -78,6 +83,11 @@ public class TrainStationTicketGateBlock extends Block {
                 open ? SoundEvents.FENCE_GATE_OPEN : SoundEvents.FENCE_GATE_CLOSE,
                 SoundSource.BLOCKS, 1.0F, 1.0F);
         level.gameEvent(player, open ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pos);
+
+        if (open) {
+            // 5秒後にこのブロックの tick() が呼ばれる
+            level.scheduleTick(pos, this, AUTO_CLOSE_TICKS);
+        }
         return InteractionResult.SUCCESS;
     }
 
@@ -98,6 +108,24 @@ public class TrainStationTicketGateBlock extends Block {
         }
         boolean alongZ = state.getValue(FACING).getAxis() == Direction.Axis.Z;
         return alongZ ? COLLISION_CLOSED_Z : COLLISION_CLOSED_X;
+    }
+
+    @Override
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        // 手動で先に閉じられていたら何もしない
+        if (!state.getValue(OPEN)) {
+            return;
+        }
+
+        // 改札機の中に誰かいる間は閉じず、もう5秒待つ（挟まり防止）
+        if (!level.getEntitiesOfClass(LivingEntity.class, new AABB(pos)).isEmpty()) {
+            level.scheduleTick(pos, this, AUTO_CLOSE_TICKS);
+            return;
+        }
+
+        level.setBlockAndUpdate(pos, state.setValue(OPEN, false));
+        level.playSound(null, pos, SoundEvents.FENCE_GATE_CLOSE, SoundSource.BLOCKS, 1.0F, 1.0F);
+        level.gameEvent(null, GameEvent.BLOCK_CLOSE, pos);
     }
 
     // 村の構造物(structure)に含めた時に正しく回転・反転させるため
