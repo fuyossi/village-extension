@@ -3,8 +3,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "village-extension:block/ic_card_vending_machine",
-		"particle": "village-extension:block/ic_card_vending_machine"
+		"0": "village-extension:block/ic_card_vending_machine_00",
+		"particle": "village-extension:block/ic_card_vending_machine_00"
 	},
 	"elements": [
 		{

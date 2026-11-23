@@ -1,8 +1,12 @@
 {
   "variants": {
-    "facing=north": { "model": "village-extension:block/ic_card_vending_machine" },
-    "facing=east":  { "model": "village-extension:block/ic_card_vending_machine", "y": 90 },
-    "facing=south": { "model": "village-extension:block/ic_card_vending_machine", "y": 180 },
-    "facing=west":  { "model": "village-extension:block/ic_card_vending_machine", "y": 270 }
+    "facing=north,phase=0": { "model": "village-extension:block/ic_card_vending_machine_00" },
+    "facing=east,phase=0":  { "model": "village-extension:block/ic_card_vending_machine_00", "y": 90 },
+    "facing=south,phase=0": { "model": "village-extension:block/ic_card_vending_machine_00", "y": 180 },
+    "facing=west,phase=0":  { "model": "village-extension:block/ic_card_vending_machine_00", "y": 270 },
+    "facing=north,phase=1": { "model": "village-extension:block/ic_card_vending_machine_01" },
+    "facing=east,phase=1":  { "model": "village-extension:block/ic_card_vending_machine_01", "y": 90 },
+    "facing=south,phase=1": { "model": "village-extension:block/ic_card_vending_machine_01", "y": 180 },
+    "facing=west,phase=1":  { "model": "village-extension:block/ic_card_vending_machine_01", "y": 270 }
   }
 }
