@@ -20,6 +20,7 @@ public final class ModCreativeTabs {
             .title(Component.translatable("creativeTab.village-extension"))
             .displayItems((params, output) -> {
                 output.accept(ModBlocks.TRAIN_STATION_TICKET_GATE);
+                output.accept(ModBlocks.TRAIN_STATION_TICKET_VENDING_MACHINE);
             })
             .build();
 

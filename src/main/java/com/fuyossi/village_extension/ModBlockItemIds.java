@@ -6,6 +6,8 @@ import net.minecraft.resources.Identifier;
 public class ModBlockItemIds {
     public static final BlockItemId TRAIN_STATION_TICKET_GATE = create("train_station_ticket_gate");
 
+    public static final BlockItemId TRAIN_STATION_TICKET_VENDING_MACHINE = create("train_station_ticket_vending_machine");
+
     private static BlockItemId create(String name) {
         Identifier id = Identifier.fromNamespaceAndPath(VillageExtension.MOD_ID, name);
         return BlockItemId.create(id, id);
